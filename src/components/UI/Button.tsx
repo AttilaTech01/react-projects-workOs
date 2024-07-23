@@ -3,18 +3,20 @@ import { GoSync } from 'react-icons/go';
 
 export interface ButtonProps {
     children: ReactNode,
+    className?: string,
     loading: boolean,
     onClick: () => void
 }
 
 function Button({
   children,
+  className,
   loading,
   onClick
 }: ButtonProps) {
 
   return (
-    <button onClick={onClick} disabled={loading}>
+    <button className={className} onClick={onClick} disabled={loading}>
       {loading ? <GoSync /> : children}
     </button>
   );

@@ -21,7 +21,7 @@ function FoldersList({ desk }: FoldersListProps) {
     }
 
     return (
-        <div>
+        <div className='folders-list'>
             {content}
         </div>
     );

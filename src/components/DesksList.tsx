@@ -1,7 +1,11 @@
-import { useFetchDesksQuery } from "../store/store";
+import { Desk, useFetchDesksQuery } from "../store/store";
 import DesksListItem from "./DesksListItem";
 
-function DesksList() {
+export interface DesksListItemProps {
+    deskChange: (desk: Desk) => void,
+}
+
+function DesksList({ deskChange }: DesksListItemProps) {
     const { data, error, isFetching } = useFetchDesksQuery();
     
     let content;
@@ -11,12 +15,12 @@ function DesksList() {
         content = <div>Error while fetching data ...</div>;
     } else {
         content = data?.map((desk) => {
-            return <DesksListItem key={desk.id} desk={desk} />;
+            return <DesksListItem key={desk.id} desk={desk} deskChange={deskChange} />;
         })
     }
 
     return (
-        <div>
+        <div className="desks-list">
             <h1>Desks</h1>
             {content}
         </div>

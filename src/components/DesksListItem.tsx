@@ -1,32 +1,30 @@
 import { Fragment } from "react";
-import { GoTrash } from "react-icons/go";
+//import { GoTrash } from "react-icons/go";
 import { Desk } from '../store/store';
 import Button from "./UI/Button";
-import ExpandablePanel from "./UI/ExpandablePanel";
-import FoldersList from "./FoldersList";
 
 export interface DesksListItemProps {
     desk: Desk,
+    deskChange: (desk: Desk) => void,
 }
 
-function DesksListItem({ desk }: DesksListItemProps) {
+function DesksListItem({ desk, deskChange }: DesksListItemProps) {
+    /*
     const handleDelete = () => {
         console.log('Deleting desk with id : ', desk.id);
     };
+    */
 
-    const header = (
-        <Fragment>
-            <Button loading={false} onClick={handleDelete}>
-                <GoTrash />
-            </Button>
-            {desk.name}
-        </Fragment>
-    );
+    const handleDeskChange = () => {
+        deskChange(desk);
+    };
 
     return (
-        <ExpandablePanel header={header}>
-            <FoldersList desk={desk} />
-        </ExpandablePanel>
+        <Fragment>
+            <Button className="desks-list-item" loading={false} onClick={handleDeskChange}>
+                {desk.name}
+            </Button>
+        </Fragment>
     );
 }
 

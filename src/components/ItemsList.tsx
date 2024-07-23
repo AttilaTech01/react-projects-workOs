@@ -21,7 +21,7 @@ function ItemsList({ file }: ItemsListProps) {
     }
 
     return (
-        <div>
+        <div className='items-list'>
             {content}
         </div>
     );

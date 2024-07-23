@@ -1,10 +1,57 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.main-container {
+  padding: 24px;
+  background-color: #888;
+  display: flex;
 }
 
-.board {
-  color: #888;
+/* DesksList */
+.desks-list {
+  display: inherit;
+  flex-direction: column;
+  justify-content: start;
+  margin-right: 24px;
+}
+
+/* DesksListItem */
+.desks-list-item {
+  margin: 8px 0;
+}
+
+/* FoldersList */
+.folders-list {
+  background-color: black;
+  border-radius: 20px;
+  padding: 16px;
+  width: 100%;
+}
+
+/* FilesList */
+.files-list {
+  background-color: rgb(24, 24, 24);
+  border-radius: 20px;
+  padding: 16px;
+}
+
+/* ItemsList */
+.items-list {
+  background-color: rgb(35, 35, 35);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 8px;
+}
+
+/* ItemsListItem */
+.items-list-item {
+  background-color: rgb(48, 48, 48);
+  border-radius: 10px;
+  margin: 4px;
+  padding: 8px;
+}
+
+/* ExpandablePanel */
+.expandable-panel-header {
+  display: flex;
+  margin: 8px 0;
 }

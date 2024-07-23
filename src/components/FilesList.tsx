@@ -21,7 +21,7 @@ function FilesList({ folder }: FilesListProps) {
     }
 
     return (
-        <div>
+        <div className='files-list'>
             {content}
         </div>
     );

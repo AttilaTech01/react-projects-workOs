@@ -15,7 +15,7 @@ function ExpandablePanel({ header, children }: ExpandablePanelProps) {
 
     return (
         <div>
-            <div>
+            <div className="expandable-panel-header">
                 <div>
                     {header}
                 </div>

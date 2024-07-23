@@ -1,7 +1,6 @@
 import { Fragment } from "react";
-import { GoTrash } from "react-icons/go";
+//import { GoTrash } from "react-icons/go";
 import { File } from '../store/store';
-import Button from "./UI/Button";
 import ExpandablePanel from "./UI/ExpandablePanel";
 import ItemsList from "./ItemsList";
 
@@ -10,15 +9,14 @@ export interface FilesListItemProps {
 }
 
 function FilesListItem({ file }: FilesListItemProps) {
+    /*
     const handleDelete = () => {
         console.log('Deleting folder with id : ', file.id);
     };
+    */
 
     const header = (
         <Fragment>
-            <Button loading={false} onClick={handleDelete}>
-                <GoTrash />
-            </Button>
             {file.title}
         </Fragment>
     );
