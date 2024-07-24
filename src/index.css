@@ -34,6 +34,10 @@ h1 {
   margin: 16px;
 }
 
+h2 {
+  margin: 12px 0;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;

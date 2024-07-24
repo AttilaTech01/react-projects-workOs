@@ -1,4 +1,5 @@
-import { Desk, useFetchFoldersQuery } from '../store/store';
+import { Desk, useAddFolderMutation, useFetchFoldersQuery } from '../store/store';
+import Button from './UI/Button';
 import Skeleton from './UI/Skeleton';
 import FoldersListItem from "./FoldersListItem";
 
@@ -8,6 +9,11 @@ export interface FoldersListProps {
 
 function FoldersList({ desk }: FoldersListProps) {
     const { data, error, isFetching } = useFetchFoldersQuery(desk);
+    const [addFolder, results] = useAddFolderMutation();
+
+    const handleAddFolder = async () => {
+        await addFolder(desk);
+    };
 
     let content;
     if (isFetching) {
@@ -22,7 +28,11 @@ function FoldersList({ desk }: FoldersListProps) {
 
     return (
         <div className='folders-list'>
+            <h2>Folders</h2>
             {content}
+            <Button className="add-button" loading={results.isLoading} onClick={handleAddFolder}>
+                + Folder
+            </Button>
         </div>
     );
 }

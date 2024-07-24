@@ -19,6 +19,7 @@ const foldersApi = createApi({
             return fetch(...args);
         }
     }),
+    tagTypes: ['Desk', 'Folder'],
     endpoints: (builder) => ({
         addFolder: builder.mutation<Folder, Desk>({
             query: (desk) => {
@@ -30,7 +31,8 @@ const foldersApi = createApi({
                     },
                     method: 'POST'
                 };
-            }
+            },
+            invalidatesTags: (result, error, arg) => [{ type: 'Desk', id: arg.id }]
         }),
         deleteFolder: builder.mutation<void, number>({
             query: (id) => {
@@ -49,7 +51,14 @@ const foldersApi = createApi({
                     },
                     method: 'GET'
                 };
-            }
+            },
+            providesTags: (result, error, arg) =>
+                result
+                    ? [
+                        ...result.map((folder) => ({ type: 'Folder' as const, id: folder.id })),
+                        { type: 'Desk', id: arg.id }
+                    ]
+                    : [{ type: 'Desk', id: arg.id }],
         })
     }),
 });
