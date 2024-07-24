@@ -19,17 +19,19 @@ const desksApi = createApi({
             return fetch(...args);
         }
     }),
+    tagTypes: ['Desk'],
     endpoints: (builder) => ({
         addDesk: builder.mutation<Desk, void>({
             query: () => {
                 return {
                     url: '/desks',
                     body: {
-                        name: faker.airline.airline()
+                        name: faker.airline.airline().name
                     },
                     method: 'POST'
                 };
-            }
+            },
+            invalidatesTags: [{ type: 'Desk', id: 'REFRESH' }]
         }),
         deleteDesk: builder.mutation<void, number>({
             query: (id) => {
@@ -45,7 +47,14 @@ const desksApi = createApi({
                     url: '/desks',
                     method: 'GET'
                 };
-            }
+            },
+            providesTags: (result) => 
+                result
+                    ? [
+                        ...result.map(({ id }) => ({ type: 'Desk' as const, id })),
+                        { type: 'Desk', id: 'REFRESH' },
+                    ]
+                    : [{ type: 'Desk', id: 'REFRESH' }],
         })
     }),
 });

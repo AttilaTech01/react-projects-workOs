@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { GoChevronDown, GoChevronLeft } from "react-icons/go";
+import { GoChevronDown, GoChevronRight } from "react-icons/go";
 
 export interface ExpandablePanelProps {
     header: ReactNode,
@@ -15,12 +15,12 @@ function ExpandablePanel({ header, children }: ExpandablePanelProps) {
 
     return (
         <div>
-            <div className="expandable-panel-header">
+            <div className="expandable-panel-header" onClick={handleClick}>
                 <div>
                     {header}
                 </div>
-                <div onClick={handleClick}>
-                    {expanded ? <GoChevronDown /> : <GoChevronLeft /> }
+                <div>
+                    {expanded ? <GoChevronDown /> : <GoChevronRight /> }
                 </div>
             </div>
             {expanded && 

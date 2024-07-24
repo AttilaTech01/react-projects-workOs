@@ -9,7 +9,13 @@
   display: inherit;
   flex-direction: column;
   justify-content: start;
-  margin-right: 24px;
+  margin:0 24px 12px 0;
+}
+
+.add-button {
+  background-color: transparent;
+  border: solid 2px black;
+  margin: 12px 0 0 0;
 }
 
 /* DesksListItem */
@@ -52,6 +58,7 @@
 
 /* ExpandablePanel */
 .expandable-panel-header {
+  cursor: pointer;
   display: flex;
   margin: 8px 0;
 }

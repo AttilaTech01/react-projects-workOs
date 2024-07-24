@@ -1,4 +1,5 @@
-import { Desk, useFetchDesksQuery } from "../store/store";
+import { Desk, useFetchDesksQuery, useAddDeskMutation } from "../store/store";
+import Button from "./UI/Button";
 import DesksListItem from "./DesksListItem";
 
 export interface DesksListItemProps {
@@ -7,6 +8,11 @@ export interface DesksListItemProps {
 
 function DesksList({ deskChange }: DesksListItemProps) {
     const { data, error, isFetching } = useFetchDesksQuery();
+    const [addDesk, results] = useAddDeskMutation();
+
+    const handleAddDesk = async () => {
+        await addDesk();
+    };
     
     let content;
     if (isFetching) {
@@ -23,6 +29,9 @@ function DesksList({ deskChange }: DesksListItemProps) {
         <div className="desks-list">
             <h1>Desks</h1>
             {content}
+            <Button className="add-button" loading={results.isLoading} onClick={handleAddDesk}>
+                + Desk
+            </Button>
         </div>
     );
 }
