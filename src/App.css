@@ -24,7 +24,16 @@
 
 /* DesksListItem */
 .desks-list-item {
+  border: solid 2px black;
+  border-radius: 10px;
+  cursor: pointer;
   margin: 8px 0;
+  padding: 8px;
+  text-align: center;
+}
+
+.desks-list-item:hover {
+  background-color: #707070;
 }
 
 /* FoldersList */
@@ -46,9 +55,11 @@
 .items-list {
   background-color: rgb(35, 35, 35);
   border-radius: 16px;
+
   display: flex;
   flex-direction: column;
   justify-content: start;
+  
   padding: 8px;
 }
 
@@ -56,6 +67,11 @@
 .items-list-item {
   background-color: rgb(48, 48, 48);
   border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   margin: 4px;
   padding: 8px;
 }

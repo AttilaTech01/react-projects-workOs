@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 //import { GoTrash } from "react-icons/go";
 import { Desk } from '../store/store';
-import Button from "./UI/Button";
+//import Button from "./UI/Button";
 
 export interface DesksListItemProps {
     desk: Desk,
@@ -21,9 +21,9 @@ function DesksListItem({ desk, deskChange }: DesksListItemProps) {
 
     return (
         <Fragment>
-            <Button className="desks-list-item" loading={false} onClick={handleDeskChange}>
+            <div className="desks-list-item" onClick={handleDeskChange}>
                 {desk.name}
-            </Button>
+            </div>
         </Fragment>
     );
 }

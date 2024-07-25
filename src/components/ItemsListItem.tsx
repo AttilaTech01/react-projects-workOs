@@ -1,20 +1,25 @@
-//import { GoTrash } from "react-icons/go";
-import { Item } from '../store/store';
+import { GoTrash } from "react-icons/go";
+import { Item, useDeleteItemMutation } from '../store/store';
+import Button from './UI/Button';
 
 export interface ItemsListItemProps {
     item: Item,
 }
 
 function ItemsListItem({ item }: ItemsListItemProps) {
-    /*
+    const [deleteItem, results] = useDeleteItemMutation();
+    
     const handleDelete = () => {
-        console.log('Deleting folder with id : ', item.id);
+        deleteItem(item.id);
     };
-    */
+    
 
     return (
         <div className='items-list-item'>
             {item.name}
+            <Button className="mr-2" loading={results.isLoading} onClick={handleDelete}>
+                <GoTrash />
+            </Button>
         </div>
     );
 }

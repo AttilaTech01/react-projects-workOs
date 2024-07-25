@@ -40,7 +40,8 @@ const itemsApi = createApi({
                     url: `/items/${id}`,
                     method: 'DELETE'
                 };
-            }
+            },
+            invalidatesTags: (result, error, arg) => [{ type: 'Item', id: arg }]
         }),
         fetchItems: builder.query<Item[], File>({
             query: (file) => {
