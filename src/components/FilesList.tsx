@@ -1,4 +1,5 @@
-import { Folder, useFetchFilesQuery } from '../store/store';
+import { Folder, useFetchFilesQuery, useAddFileMutation } from '../store/store';
+import Button from './UI/Button';
 import Skeleton from './UI/Skeleton';
 import FilesListItem from "./FilesListItem";
 
@@ -8,6 +9,11 @@ export interface FilesListProps {
 
 function FilesList({ folder }: FilesListProps) {
     const { data, error, isFetching } = useFetchFilesQuery(folder);
+    const [addFile, results] = useAddFileMutation();
+
+    const handleAddFile = async () => {
+        await addFile(folder);
+    };
 
     let content;
     if (isFetching) {
@@ -23,6 +29,9 @@ function FilesList({ folder }: FilesListProps) {
     return (
         <div className='files-list'>
             {content}
+            <Button className="add-button" loading={results.isLoading} onClick={handleAddFile}>
+                + File
+            </Button>
         </div>
     );
 }

@@ -19,18 +19,20 @@ const itemsApi = createApi({
             return fetch(...args);
         }
     }),
+    tagTypes: ['File', 'Item'],
     endpoints: (builder) => ({
         addItem: builder.mutation<Item, File>({
-            query: (folder) => {
+            query: (file) => {
                 return {
                     url: '/items',
                     body: {
-                        title: faker.finance.currencyName(),
-                        deskId: folder.id
+                        name: faker.finance.currencyName(),
+                        fileId: file.id
                     },
                     method: 'POST'
                 };
-            }
+            },
+            invalidatesTags: (result, error, arg) => [{ type: 'File', id: arg.id }]
         }),
         deleteItem: builder.mutation<void, number>({
             query: (id) => {
@@ -49,7 +51,14 @@ const itemsApi = createApi({
                     },
                     method: 'GET'
                 };
-            }
+            },
+            providesTags: (result, error, arg) =>
+                result 
+                    ? [
+                        ...result.map((item) => ({ type: 'Item' as const, id: item.id })),
+                        { type: 'File', id: arg.id }
+                    ]
+                    : [{ type: 'File', id: arg.id }]
         })
     }),
 });

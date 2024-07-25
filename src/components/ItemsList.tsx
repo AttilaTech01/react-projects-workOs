@@ -1,4 +1,5 @@
-import { File, useFetchItemsQuery } from '../store/store';
+import { File, useAddItemMutation, useFetchItemsQuery } from '../store/store';
+import Button from './UI/Button';
 import Skeleton from './UI/Skeleton';
 import ItemsListItem from "./ItemsListItem";
 
@@ -8,6 +9,11 @@ export interface ItemsListProps {
 
 function ItemsList({ file }: ItemsListProps) {
     const { data, error, isFetching } = useFetchItemsQuery(file);
+    const [addItem, results] = useAddItemMutation();
+
+    const handleAddItem = async () => {
+        await addItem(file);
+    };
 
     let content;
     if (isFetching) {
@@ -23,6 +29,9 @@ function ItemsList({ file }: ItemsListProps) {
     return (
         <div className='items-list'>
             {content}
+            <Button className="add-button" loading={results.isLoading} onClick={handleAddItem}>
+                + Item
+            </Button>
         </div>
     );
 }

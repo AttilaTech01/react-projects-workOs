@@ -19,6 +19,7 @@ const filesApi = createApi({
             return fetch(...args);
         }
     }),
+    tagTypes: ['Folder', 'File'],
     endpoints: (builder) => ({
         addFile: builder.mutation<File, Folder>({
             query: (folder) => {
@@ -26,11 +27,12 @@ const filesApi = createApi({
                     url: '/files',
                     body: {
                         title: faker.animal.bird(),
-                        deskId: folder.id
+                        folderId: folder.id
                     },
                     method: 'POST'
                 };
-            }
+            },
+            invalidatesTags: (result, error, arg) => [{ type: 'Folder', id: arg.id }]
         }),
         deleteFile: builder.mutation<void, number>({
             query: (id) => {
@@ -49,7 +51,14 @@ const filesApi = createApi({
                     },
                     method: 'GET'
                 };
-            }
+            },
+            providesTags: (result, error, arg) => 
+                result
+                    ? [
+                        ...result.map((file) => ({ type: 'File' as const, id: file.id })), 
+                        { type: 'Folder', id: arg.id }
+                    ] 
+                    : [{ type: 'Folder', id: arg.id }]
         })
     }),
 });
