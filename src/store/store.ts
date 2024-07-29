@@ -7,24 +7,24 @@ import { filesApi } from "./apis/filesApi";
 import { itemsApi } from "./apis/itemsApi";
 
 export interface Desk {
-    id: number,
+    id: string,
     name: string
 }
 
 export interface Folder {
-    id: number,
+    id: string,
     title: string,
     deskId: number
 }
 
 export interface File {
-    id: number,
+    id: string,
     title: string,
     folderId: number
 }
 
 export interface Item {
-    id: number,
+    id: string,
     name: string,
     fileId: number
 }

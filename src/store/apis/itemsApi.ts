@@ -34,7 +34,7 @@ const itemsApi = createApi({
             },
             invalidatesTags: (result, error, arg) => [{ type: 'File', id: arg.id }]
         }),
-        deleteItem: builder.mutation<void, number>({
+        deleteItem: builder.mutation<void, string>({
             query: (id) => {
                 return {
                     url: `/items/${id}`,

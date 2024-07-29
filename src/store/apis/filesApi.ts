@@ -34,7 +34,7 @@ const filesApi = createApi({
             },
             invalidatesTags: (result, error, arg) => [{ type: 'Folder', id: arg.id }]
         }),
-        deleteFile: builder.mutation<void, number>({
+        deleteFile: builder.mutation<void, string>({
             query: (id) => {
                 return {
                     url: `/files/${id}`,

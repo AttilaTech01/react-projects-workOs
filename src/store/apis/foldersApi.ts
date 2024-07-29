@@ -34,7 +34,7 @@ const foldersApi = createApi({
             },
             invalidatesTags: (result, error, arg) => [{ type: 'Desk', id: arg.id }]
         }),
-        deleteFolder: builder.mutation<void, number>({
+        deleteFolder: builder.mutation<void, string>({
             query: (id) => {
                 return {
                     url: `/folders/${id}`,

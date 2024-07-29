@@ -4,7 +4,7 @@ import { GoSync } from 'react-icons/go';
 export interface ButtonProps {
     children: ReactNode,
     className?: string,
-    loading: boolean,
+    loading?: boolean,
     onClick: () => void
 }
 

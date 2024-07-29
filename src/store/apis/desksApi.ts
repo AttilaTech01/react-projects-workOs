@@ -33,7 +33,7 @@ const desksApi = createApi({
             },
             invalidatesTags: [{ type: 'Desk', id: 'REFRESH' }]
         }),
-        deleteDesk: builder.mutation<void, number>({
+        deleteDesk: builder.mutation<void, string>({
             query: (id) => {
                 return {
                     url: `/desks/${id}`,

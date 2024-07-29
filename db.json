@@ -1,73 +1,89 @@
 {
-    "desks": [
-        {
-            "id": 1,
-            "name": "First Desk"
-        },
-        {
-            "id": 2,
-            "name": "Second Desk"
-        }
-    ],
-    "folders": [
-        {
-            "id": 789,
-            "title": "First Folder",
-            "deskId": 1
-        },
-        {
-            "id": 582,
-            "title": "Second Folder",
-            "deskId": 1
-        },
-        {
-            "id": 234,
-            "title": "Third Folder",
-            "deskId": 1
-        },
-        {
-            "id": 111,
-            "title": "Fourth Folder",
-            "deskId": 2
-        },
-        {
-            "id": 222,
-            "title": "Fifth Folder",
-            "deskId": 2
-        }
-    ],
-    "files": [
-        {
-            "id": 7567,
-            "title": "First File",
-            "folderId": 789
-        },
-        {
-            "id": 7856,
-            "title": "Second File",
-            "folderId": 789
-        },
-        {
-            "id": 3562,
-            "title": "Third File",
-            "folderId": 234
-        }
-    ],
-    "items": [
-        {
-            "id": 12345678,
-            "name": "First Item",
-            "fileId": 7567
-        },
-        {
-            "id": 22345678,
-            "name": "Second Item",
-            "fileId": 7567
-        },
-        {
-            "id": 32345678,
-            "name": "Third Item",
-            "fileId": 3562
-        }
-    ]
+  "desks": [
+    {
+      "id": "1",
+      "name": "First Desk"
+    },
+    {
+      "id": "2",
+      "name": "Second Desk"
+    },
+    {
+      "id": "ed5d",
+      "name": "Cebu Pacific Air"
+    },
+    {
+      "id": "d7a5",
+      "name": "Satena"
+    },
+    {
+      "id": "af98",
+      "name": "China Southern Airlines"
+    },
+    {
+      "id": "ec57",
+      "name": "Air Europa"
+    }
+  ],
+  "folders": [
+    {
+      "id": "789",
+      "title": "First Folder",
+      "deskId": 1
+    },
+    {
+      "id": "582",
+      "title": "Second Folder",
+      "deskId": 1
+    },
+    {
+      "id": "234",
+      "title": "Third Folder",
+      "deskId": 1
+    },
+    {
+      "id": "111",
+      "title": "Fourth Folder",
+      "deskId": 2
+    },
+    {
+      "id": "222",
+      "title": "Fifth Folder",
+      "deskId": 2
+    }
+  ],
+  "files": [
+    {
+      "id": "7567",
+      "title": "First File",
+      "folderId": 789
+    },
+    {
+      "id": "7856",
+      "title": "Second File",
+      "folderId": 789
+    },
+    {
+      "id": "3562",
+      "title": "Third File",
+      "folderId": 234
+    }
+  ],
+  "items": [
+    {
+      "id": "12345678",
+      "name": "First Item",
+      "fileId": 7567
+    },
+    {
+      "id": "22345678",
+      "name": "Second Item",
+      "fileId": 7567
+    },
+    {
+      "id": "32345678",
+      "name": "Third Item",
+      "fileId": 3562
+    }
+  ]
 }
